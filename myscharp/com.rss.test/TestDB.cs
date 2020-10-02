@@ -1,4 +1,5 @@
-﻿using System;
+﻿using myscharp.com.rss.db;
+using System;
 using System.Data.SQLite;
 using System.Globalization;
 
@@ -20,8 +21,21 @@ namespace myscharp
 
         public TestDB()
         {
-           // createNewDatabase();
-          //  connectToDatabase();
+            DbConnFactory db = DbConnFactory.getSingleInstance;
+            db.openSQLiteDatabase();
+           string sql = "insert into t_user_account values(null,'desk_staff','king','123')";
+
+            if (db.insertOrUpdateOrDelete(sql) > 1)
+            {
+                Console.WriteLine("insert successful !");
+            }
+            else {
+                Console.WriteLine("insert failed !");
+            }
+
+            db.closeSQLiteDatabase();
+            // createNewDatabase();
+            //  connectToDatabase();
             // createTable();
             // fillTable();
             // printHighscores();
@@ -29,7 +43,7 @@ namespace myscharp
 
             // multipleQuery(sql);
 
-         //   getDate();
+            //   getDate();
         }
 
         void getDate() {

@@ -19,8 +19,7 @@ namespace myscharp.com.rss.db
 
         private SQLiteDataReader dataReader;
 
-        private SQLiteConnectionStringBuilder dbConnectionstr;
-
+    
         public SQLiteConnection openSQLiteDatabase()
         {
             dbConnection = new SQLiteConnection("Data Source=" + path + ";Version=3;");

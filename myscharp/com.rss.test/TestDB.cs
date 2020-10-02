@@ -1,4 +1,5 @@
 ﻿using myscharp.com.rss.db;
+using myscharp.com.rss.model;
 using System;
 using System.Data.SQLite;
 using System.Globalization;
@@ -16,7 +17,13 @@ namespace myscharp
 
         static void Main(string[] args)
         {
-            TestDB p = new TestDB();
+
+            UserAccount user = new UserAccount();
+
+            user.UserName = "jerry";
+
+            Console.WriteLine(user.UserName); 
+           // TestDB p = new TestDB();
         }
 
         public TestDB()

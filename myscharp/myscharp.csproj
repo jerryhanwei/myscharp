@@ -9,4 +9,11 @@
     <PackageReference Include="system.data.sqlite.x64" Version="1.0.113" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="com.rss.model\" />
+    <Folder Include="com.rss.controller\" />
+    <Folder Include="com.rss.service\" />
+    <Folder Include="com.rss.service.impl\" />
+  </ItemGroup>
+
 </Project>

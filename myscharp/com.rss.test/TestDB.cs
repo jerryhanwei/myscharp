@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace myscharp
 {
-    class Program
+    class TestDB
     {
         //数据库连接
         SQLiteConnection m_dbConnection;
@@ -15,27 +15,21 @@ namespace myscharp
 
         static void Main(string[] args)
         {
-            Program p = new Program();
+            TestDB p = new TestDB();
         }
 
-        public Program()
+        public TestDB()
         {
            // createNewDatabase();
-            connectToDatabase();
+          //  connectToDatabase();
             // createTable();
             // fillTable();
             // printHighscores();
 
 
-            /*  string sql = "select p.p_name,p.personid,m.personid as m_id,m.p_name as m_name from t_person p,t_person m"
-                           + " where p.manager_id = m.personid";
-  */
-            string sql = "select * from t_user_account as u left join" 
-            +" t_person as p on u.user_id = p.personid";
-
             // multipleQuery(sql);
 
-            getDate();
+         //   getDate();
         }
 
         void getDate() {
@@ -99,6 +93,14 @@ namespace myscharp
 
         void multipleQuery(String sql)
         {
+
+            /*  string sql = "select p.p_name,p.personid,m.personid as m_id,m.p_name as m_name from t_person p,t_person m"
+                           + " where p.manager_id = m.personid";
+  
+          string sql = "select * from t_user_account as u left join" 
+            +" t_person as p on u.user_id = p.personid";
+         */
+
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())

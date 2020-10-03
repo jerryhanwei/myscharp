@@ -4,8 +4,9 @@ using System.Text;
 
 namespace myscharp.com.rss.model
 {
-    class Empolyee
+    class Employee
     {
+        
         private string empID;
         private string userID;
         private string outLetID;

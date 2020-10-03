@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <Folder Include="com.rss.controller\" />
-    <Folder Include="com.rss.service\" />
     <Folder Include="com.rss.service.impl\" />
   </ItemGroup>
 

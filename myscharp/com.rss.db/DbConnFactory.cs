@@ -19,7 +19,19 @@ namespace myscharp.com.rss.db
 
         private SQLiteDataReader dataReader;
 
-    
+        public Boolean autoUpdateDeleteUpdate(string sql) {
+
+            this.openSQLiteDatabase();
+            if (this.insertOrUpdateOrDelete(sql) > 0)
+            {
+                this.closeSQLiteDatabase();
+                return true;
+            }
+
+            this.closeSQLiteDatabase();
+            return false;
+        }  
+
         public SQLiteConnection openSQLiteDatabase()
         {
             dbConnection = new SQLiteConnection("Data Source=" + path + ";Version=3;");

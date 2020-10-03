@@ -35,6 +35,7 @@ namespace myscharp.com.rss.service
         {
 
             dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn();
+            dbConnection.Open(); 
             if (this.insertOrUpdateOrDelete(sql) > 0)
             {
                 this.closeSQLiteDatabase();
@@ -68,16 +69,6 @@ namespace myscharp.com.rss.service
 
         }
 
-        public bool deleteObj(string sql)
-        {
-            // delete from t_user_account where user_id='1'
-            if (this.insertOrUpdateOrDelete(sql) > 0)
-            {
-                return true;
-            }
-            return false;
-        }
-
 
   
 
@@ -102,20 +93,6 @@ namespace myscharp.com.rss.service
         }
 
       
-        public bool updateObj(string sql)
-        {
-
-            if (this.insertOrUpdateOrDelete(sql) > 0)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public bool updateObj(string tableName, string attibuteName, string[] paraArray)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

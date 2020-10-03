@@ -1,5 +1,7 @@
 ﻿using myscharp.com.rss.db;
 using myscharp.com.rss.model;
+using myscharp.com.rss.service;
+using myscharp.com.rss.service.dao;
 using System;
 using System.Data.SQLite;
 using System.Globalization;
@@ -9,38 +11,67 @@ namespace myscharp
     class TestDB
     {
         //数据库连接
-        SQLiteConnection m_dbConnection;
-       
-
+        static SQLiteConnection m_dbConnection;
+         // DAO : data access object
+        static CrudDAO dao;
+        static TestDB() {
+            m_dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn();
+        
+        }
        // string path = @"c:\Users\wayne\source\testdb.db";
         string path = @"TOYOTA_RSS.db";
 
         static void Main(string[] args)
         {
+            //insertJob();
+            updateJob();
+        }
 
-            UserAccount user = new UserAccount();
+        public static void  insertJob()
+        {
 
-            user.UserName = "jerry";
+            Job job = new Job();
 
-            Console.WriteLine(user.UserName); 
-           // TestDB p = new TestDB();
+            job.JobType="repairaaaa";
+            JobService jobService = new JobDao();
+            for (int i = 0; i < 10; i++) {
+                jobService.insertOrUpdateOneJob(job);
+            }
+     
+        
+        }
+
+        public static void updateJob()
+        {
+
+            Job job = new Job();
+
+           // job.JobType = "new type222";
+            job.JobID = "3";
+            //   job.OpenDate = "May 5 2020";
+            //  job.CloseDate = "Jun 6 2020";
+            //  job.PriorityLevel = "02222";
+            // job.JobStatus = "closed";
+            // job.DeskStaffID = "0099";
+            // job.WorkerID = "worker id";
+            job.CarID = "carid";
+            JobService jobService = new JobDao();
+            jobService.insertOrUpdateOneJob(job);
+
         }
 
         public TestDB()
         {
-            DbConnFactory db = DbConnFactory.getSingleInstance;
-            db.openSQLiteDatabase();
-           string sql = "insert into t_user_account values(null,'desk_staff','king','123')";
+          /* string sql = "insert into t_user_account values(null,'desk_staff','king','123')";
 
-            if (db.insertOrUpdateOrDelete(sql) > 1)
+            if (m_dbConnection.auto(sql) > 1)
             {
                 Console.WriteLine("insert successful !");
             }
             else {
                 Console.WriteLine("insert failed !");
-            }
+            }*/
 
-            db.closeSQLiteDatabase();
             // createNewDatabase();
             //  connectToDatabase();
             // createTable();

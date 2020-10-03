@@ -13,67 +13,10 @@ namespace myscharp.com.rss.db
 
         string path = @"TOYOTA_RSS.db";
 
-        SQLiteConnection dbConnection;
-
-        private SQLiteCommand dbCommand;
-
-        private SQLiteDataReader dataReader;
-
-        public Boolean autoUpdateDeleteUpdate(string sql) {
-
-            this.openSQLiteDatabase();
-            if (this.insertOrUpdateOrDelete(sql) > 0)
-            {
-                this.closeSQLiteDatabase();
-                return true;
-            }
-
-            this.closeSQLiteDatabase();
-            return false;
-        }  
-
-        public SQLiteConnection openSQLiteDatabase()
+        public SQLiteConnection getSQLiteConn()
         {
-            dbConnection = new SQLiteConnection("Data Source=" + path + ";Version=3;");
-            dbConnection.Open();
-            return dbConnection;
-
-
-        }
-
-        public void closeSQLiteDatabase()
-        {
-            if (dbCommand != null)
-            {
-                dbCommand.Cancel();
-            }
-            dbCommand = null;
-        
-            if (dataReader != null)
-            {
-                dataReader.Close();
-            }
-            dataReader = null;
+            return new SQLiteConnection("Data Source=" + path + ";Version=3;");
          
-            if (dbConnection != null)
-            {
-                dbConnection.Close();
-            }
-            dbConnection = null;
-
-
-        }
-
-        public int insertOrUpdateOrDelete(string sql) {
-            dbCommand = new SQLiteCommand(sql, dbConnection);
-            return dbCommand.ExecuteNonQuery();
-
-        }
-
-        public SQLiteDataReader query(string sql) {
-
-            dbCommand = new SQLiteCommand(sql, dbConnection);
-            return dbCommand.ExecuteReader();
         }
 
 

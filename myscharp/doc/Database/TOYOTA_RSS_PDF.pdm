@@ -1573,7 +1573,7 @@ CARD 0 Arial Unicode MS,8,N</a:FontList>
 <o:ReferenceSymbol Id="o21">
 <a:CreationDate>1600760864</a:CreationDate>
 <a:ModificationDate>1601673228</a:ModificationDate>
-<a:Rect>((-74657,-4672), (-73657,25144))</a:Rect>
+<a:Rect>((-79408,-4672), (-68908,25144))</a:Rect>
 <a:ListOfPoints>((-74050,25144),(-74264,-4672))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>12615680</a:LineColor>
@@ -1613,7 +1613,7 @@ CARD 0 Arial Unicode MS,8,N</a:FontList>
 <o:ReferenceSymbol Id="o26">
 <a:CreationDate>1600761820</a:CreationDate>
 <a:ModificationDate>1601085463</a:ModificationDate>
-<a:Rect>((-70024,5948), (-69024,24416))</a:Rect>
+<a:Rect>((-73186,5948), (-65836,24416))</a:Rect>
 <a:ListOfPoints>((-69186,5948),(-69862,24416))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>12615680</a:LineColor>
@@ -1914,10 +1914,10 @@ TableComment 0 Arial Unicode MS,8,N</a:FontList>
 <a:Code>user_role</a:Code>
 <a:CreationDate>1601085375</a:CreationDate>
 <a:Creator>wayne</a:Creator>
-<a:ModificationDate>1601085412</a:ModificationDate>
+<a:ModificationDate>1602074541</a:ModificationDate>
 <a:Modifier>wayne</a:Modifier>
-<a:DataType>INTEGER(50)</a:DataType>
-<a:Length>50</a:Length>
+<a:DataType>VARCHAR(30)</a:DataType>
+<a:Length>30</a:Length>
 </o:Column>
 <o:Column Id="o45">
 <a:ObjectID>D8475B1D-A01A-4AD3-86BF-8EDA017B196A</a:ObjectID>

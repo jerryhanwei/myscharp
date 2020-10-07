@@ -51,9 +51,9 @@ t_worker_id          INTEGER(50),
 car_id               INTEGER(50),
 t_job_type           INTEGER(50),
 t_job_status         VARCHAR(10),
-j_open_date          VARCHAR(20),
-j_close_date         VARCHAR(20),
-j_priority_level     VARCHAR(10)
+t_open_date          VARCHAR(20),
+t_close_date         VARCHAR(20),
+t_priority_level     VARCHAR(10)
 
 );
 

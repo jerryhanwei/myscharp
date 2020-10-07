@@ -1,7 +1,7 @@
 
 create table t_user_account (
 user_id   INTEGER PRIMARY KEY AUTOINCREMENT,
-user_role            INTEGER(50),
+user_role            VARCHAR(30),
 user_name            VARCHAR(30),
 user_pwd             VARCHAR(50)
 

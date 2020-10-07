@@ -7,7 +7,7 @@ namespace myscharp.com.rss.service
 {
     interface UserService
     {
-       public Boolean login(UserAccount user);
+       public UserAccount login(UserAccount user);
 
        public Boolean logout();
 

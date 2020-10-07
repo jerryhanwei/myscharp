@@ -23,11 +23,51 @@ namespace myscharp
 
         static void Main(string[] args)
         {
-            //insertJob();
-            updateJob();
+            closeJob();
         }
 
-        public static void  insertJob()
+        public static void closeJob()
+        {
+            JobService jobService = new JobDao();
+            Job job = new Job();
+            job.JobID = "7";
+          
+            jobService.closeJobByWorker(job);
+
+
+        }
+        public static void assign()
+        {
+            JobService jobService = new JobDao();
+            Job job = new Job();
+            job.JobID = "6";
+            job.WorkerID = "99";
+
+            jobService.assignOneJobForWorker(job);
+
+        }     
+
+
+        public static void login()
+        {
+            UserAccount user = new UserAccount();
+            user.UserName = "king";
+            user.UserPwd = "123";
+
+            UserService mylogin = new LoginDao();
+            user = mylogin.login(user);
+            Console.WriteLine(user.UserID+"-"+user.UserName+"-"+user.UserPwd+"-"+user.UserRole);
+        
+        }
+
+        public static void checkWorkLoadByWorkerID() {
+            JobService job = new JobDao();
+            string jobCount = job.checkWorkLoadByWorkerID("1");
+            Console.WriteLine("workLoad11------"+jobCount);
+        }
+
+
+        public static void  InsertJob()
         {
 
             Job job = new Job();

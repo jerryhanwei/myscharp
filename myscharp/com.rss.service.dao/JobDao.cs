@@ -1,6 +1,9 @@
-﻿using myscharp.com.rss.model;
+﻿
+using myscharp.com.rss.model;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
+using System.Globalization;
 using System.Text;
 
 namespace myscharp.com.rss.service.dao
@@ -9,24 +12,35 @@ namespace myscharp.com.rss.service.dao
     {
         public bool assignOneJobForWorker(Job job)
         {
-            string sql = "";
+            string sql = "update t_job set t_worker_id="+job.WorkerID+" where t_job_id='"+job.JobID+"'";
 
             return autoUpdateDeleteUpdate(sql);
         }
 
-        public int checkWorkLoadByWorkerID(string workerID)
+        public string checkWorkLoadByWorkerID(string workerID)
         {
-            throw new NotImplementedException();
+            string sql = "select count(1) from t_emp e left join t_job j on e.t_emp_id=j.t_worker_id"
+                         + " where e.t_emp_id = "+workerID+"";
+            SQLiteDataReader reader = this.query(sql);
+            if (reader != null) {
+                reader.Read();
+              return reader.GetInt32(0).ToString();
+            }  
+            return null;
         }
 
         public bool closeJobByWorker(Job job)
         {
-            throw new NotImplementedException();
+            string dt = DateTime.Now.ToString("MMM dd ddd yyyy", CultureInfo.CreateSpecificCulture("en-GB"));
+
+            string sql = "update t_job set t_close_date='"+ dt + "',t_job_status='closed' where t_job_id='" + job.JobID+"'";
+           
+            return autoUpdateDeleteUpdate(sql);
         }
 
         public bool deleteOneJob(Job job)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool insertOrUpdateOneJob(Job job)

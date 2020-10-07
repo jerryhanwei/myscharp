@@ -7,7 +7,7 @@ using System.Text;
 
 namespace myscharp.com.rss.service
 {
-    public abstract class CrudDAO 
+    public abstract class CrudDAO
     {
 
         private SQLiteConnection dbConnection;
@@ -16,8 +16,13 @@ namespace myscharp.com.rss.service
 
         private SQLiteDataReader dataReader;
 
+    
+
         private int insertOrUpdateOrDelete(string sql)
         {
+            dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn();
+
+            dbConnection.Open();
             dbCommand = new SQLiteCommand(sql, dbConnection);
             return dbCommand.ExecuteNonQuery();
 
@@ -26,6 +31,9 @@ namespace myscharp.com.rss.service
         public SQLiteDataReader query(string sql)
         {
 
+            dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn();
+
+            dbConnection.Open();
             dbCommand = new SQLiteCommand(sql, dbConnection);
             return dbCommand.ExecuteReader();
         }
@@ -33,8 +41,8 @@ namespace myscharp.com.rss.service
 
         public Boolean autoUpdateDeleteUpdate(string sql)
         {
-
             dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn();
+
             dbConnection.Open(); 
             if (this.insertOrUpdateOrDelete(sql) > 0)
             {

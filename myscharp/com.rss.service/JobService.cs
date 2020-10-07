@@ -23,7 +23,7 @@ namespace myscharp.com.rss.service
         /// how many repair jobs dose one worker has now?
         /// </summary>
         /// <returns></returns>
-        public int checkWorkLoadByWorkerID(string workerID);
+        public string checkWorkLoadByWorkerID(string workerID);
         /// <summary>
         /// close one job by one worker
         /// update close date and job status

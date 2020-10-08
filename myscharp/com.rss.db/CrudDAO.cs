@@ -2,6 +2,7 @@
 using myscharp.com.rss.model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Text;
 
@@ -16,7 +17,23 @@ namespace myscharp.com.rss.service
 
         private SQLiteDataReader dataReader;
 
-    
+        public DataTable GetDataTable(string sql) {
+
+            DataTable dt = new DataTable();
+            using (SQLiteConnection dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn())
+            {
+                SQLiteCommand comm = new SQLiteCommand(sql,dbConnection);
+
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
+
+                adapter.Fill(dt);
+
+            }
+
+
+                return dt;
+        
+        } 
 
         private int insertOrUpdateOrDelete(string sql)
         {

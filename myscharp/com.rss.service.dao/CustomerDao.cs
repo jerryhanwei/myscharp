@@ -7,7 +7,7 @@ namespace myscharp.com.rss.service.dao
 {
     class CustomerDao : CrudDAO, CustomerService
     {
-        public bool insertOrUpdateOneCustomer(Customer cus)
+        public bool insertOneCustomer(Customer cus)
         {
             String sql = "insert into t_customer values(null,'"+cus.UserID+ "','" + cus.CFirstName + "','"+cus.CLastName+ "','" + cus.CustomerPhone + "','" + cus.CustomerEmail + "','" + cus.CustomerAddress + "');";
            return this.autoUpdateDeleteUpdate(sql);
@@ -16,12 +16,19 @@ namespace myscharp.com.rss.service.dao
 
         public List<Customer> loadAllCustomers()
         {
-            throw new NotImplementedException();
+            string sql = "select * from t_customer";
+
+            return null;
         }
 
         public List<Customer> searchCustomerByPhoneOrName(Customer c)
         {
             throw new NotImplementedException();
+        }
+
+        public bool updateOneCustomer(Customer cus)
+        {
+            return false;
         }
     }
 }

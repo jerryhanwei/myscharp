@@ -3,6 +3,7 @@ using myscharp.com.rss.model;
 using myscharp.com.rss.service;
 using myscharp.com.rss.service.dao;
 using System;
+using System.Data;
 using System.Data.SQLite;
 using System.Globalization;
 
@@ -23,8 +24,22 @@ namespace myscharp
 
         static void Main(string[] args)
         {
-            closeJob();
+            testDatatable();
         }
+
+
+        public static void testDatatable() {
+
+            EmpDao emp = new EmpDao();
+            String sql = "select * from t_user_account";
+            DataTable dt = emp.GetDataTable(sql);
+
+            string ha;
+
+
+        
+        }
+
 
         public static void closeJob()
         {

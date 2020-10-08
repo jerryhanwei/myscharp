@@ -7,7 +7,9 @@ namespace myscharp.com.rss.service
 {
     interface CustomerService
     {
-        public Boolean insertOrUpdateOneCustomer(Customer cus);
+        public Boolean insertOneCustomer(Customer cus);
+
+        public Boolean updateOneCustomer(Customer cus);
 
         public List<Customer> searchCustomerByPhoneOrName(Customer c);
 

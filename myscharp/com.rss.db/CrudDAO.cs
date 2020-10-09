@@ -11,7 +11,6 @@ namespace myscharp.com.rss.service
     public abstract class CrudDAO
     {
 
-        private SQLiteConnection dbConnection;
 
         private SQLiteCommand dbCommand;
 
@@ -37,7 +36,7 @@ namespace myscharp.com.rss.service
 
         private int insertOrUpdateOrDelete(string sql)
         {
-            dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn();
+            SQLiteConnection dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn();
 
             dbConnection.Open();
             dbCommand = new SQLiteCommand(sql, dbConnection);
@@ -48,7 +47,7 @@ namespace myscharp.com.rss.service
         public SQLiteDataReader query(string sql)
         {
 
-            dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn();
+            SQLiteConnection dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn();
 
             dbConnection.Open();
             dbCommand = new SQLiteCommand(sql, dbConnection);
@@ -58,7 +57,7 @@ namespace myscharp.com.rss.service
 
         public Boolean autoUpdateDeleteUpdate(string sql)
         {
-            dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn();
+            SQLiteConnection dbConnection = DbConnFactory.getSingleInstance.getSQLiteConn();
 
             dbConnection.Open(); 
             if (this.insertOrUpdateOrDelete(sql) > 0)
